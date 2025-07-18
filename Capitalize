@@ -1,0 +1,11 @@
+#!/bin/bash
+
+for file in *; do
+    if [ -f "$file" ]; then
+        new_name=$(echo "$file" | sed 's/^./\U&/')
+        if [ "$file" != "$new_name" ]; then
+            mv "$file" "$new_name"
+            echo "Renamed: $file -> $new_name"
+        fi
+    fi
+done
