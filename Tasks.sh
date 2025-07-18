@@ -15,8 +15,9 @@ read -p "Would you like to add a task?(Y or N) " CHOICE
 
 
 if [[ "$CHOICE" = "Y" ]]; then
+    mkdir -p /home/$USER/Documents/Tasks
     read -p "Enter your task: " TASK
-    echo $TASK >> ${DATE}_tasks.txt && echo "Task added"
+    echo $TASK >> /home/$USER/Documents/Tasks/${DATE}_tasks.txt && echo "Task added"
 elif [[ "$CHOICE" = "N" ]]; then
     echo "Goodbye"
     exit 0
