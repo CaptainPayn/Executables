@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Add a task?"
+YES="Yes"
+NO="No"
+DATE=$(date -I)
+CHOICE=$(gum choose "$YES" "$NO")
+
+if [ "$CHOICE" != "$YES" ]; then
+    echo "Goodbye"
+    exit 1
+fi
+mkdir -p /home/$USER/Documents/Tasks
+gum input --placeholder "Enter your task here" >> /home/$USER/Documents/Tasks/${DATE}_tasks.txt
+echo "Task added"
+cat /home/$USER/Documents/Tasks/${DATE}_tasks.txt
