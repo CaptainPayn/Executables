@@ -34,7 +34,7 @@ function create_user {
 #function deletes user and their files based on username given
 function delete_user {
 	get_username
-	sudo getent passwd "$USERNAME"
+	sudo getent passwd "$USERNAME" > /dev/null
 	if [[ "$?" = 0 ]]; then
 		sudo userdel -r $USERNAME && echo "User ${USERNAME} deleted"
 	else
@@ -45,7 +45,7 @@ function delete_user {
 #function to reset password for username given
 function reset_password {
 	get_username
-	sudo getent passwd $USERNAME
+	sudo getent passwd $USERNAME > /dev/null
 	if [[ "$?" = 0 ]]; then
 		sudo passwd $USERNAME && echo "Password changed for ${USERNAME}"
 	else
@@ -68,7 +68,7 @@ else
 	case "$OPTION" in
 		-c|--create) create_user ;;
 		-d|--delete) delete_user ;;
-		-r|--reset) reset_passwd ;;
+		-r|--reset) reset_password ;;
 		-l|--list) list_user ;;
 		-h|--help) display_usage ;;
 		*) echo "Bad choice" && exit 1 ;;
