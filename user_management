@@ -1,0 +1,77 @@
+#!/bin/bash
+#author philip yurovskiyh
+
+#passes parameter to variable
+OPTION="$1"
+
+#function to get username input
+function get_username {
+	read -p "Enter a username: " USERNAME
+}
+
+#functions shows usage parameters
+function display_usage {
+	echo "Usage: $0 [OPTIONS]"
+	echo "Options:"
+	echo "-c, --create	Create new user account"
+	echo "-d, --delete	Delete user account"
+	echo "-r, --reset	Reset password for user account"
+	echo "-l, --list	List all users on system"
+	echo "-h, --help	Show usage options"
+	}
+
+#function creates user and home directory based on username given
+function create_user {
+	get_username
+	if [[ -z $USERNAME ]]; then
+		echo "Error"; exit 1
+	else
+		sudo useradd -m "$USERNAME" && echo "${USERNAME} account created"
+		sudo passwd "$USERNAME"
+	fi
+}
+
+#function deletes user and their files based on username given
+function delete_user {
+	get_username
+	sudo getent passwd "$USERNAME" > /dev/null
+	if [[ "$?" = 0 ]]; then
+		sudo userdel -r $USERNAME && echo "User ${USERNAME} deleted"
+	else
+		echo "User does not exist"
+	fi
+}
+	
+#function to reset password for username given
+function reset_password {
+	get_username
+	sudo getent passwd $USERNAME > /dev/null
+	if [[ "$?" = 0 ]]; then
+		sudo passwd $USERNAME && echo "Password changed for ${USERNAME}"
+	else
+		echo "User does not exist"
+	fi
+}
+
+#function gets the list of users
+function list_user {
+	LIST=$(sudo getent passwd | grep "/home/" | cut -d: -f1 | xargs | tr " " ",")
+	echo "List of users: ${LIST}"
+}
+
+#if no paramter or more than one is passed show usage
+if [[ -z "$OPTION" || "$#" > 1 ]]; then
+	display_usage
+	exit 1
+else
+	#case that runs function depending on option chosen
+	case "$OPTION" in
+		-c|--create) create_user ;;
+		-d|--delete) delete_user ;;
+		-r|--reset) reset_password ;;
+		-l|--list) list_user ;;
+		-h|--help) display_usage ;;
+		*) echo "Bad choice" && exit 1 ;;
+	esac
+fi
+
