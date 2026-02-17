@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo -e "Hi, please type the word: \c "
+read WORD
+echo "The word you entered is: $WORD"
+echo -e "Can you please enter two words? "
+read WORD1 WORD2
+echo "Here is your input: \"$WORD1\" \"$WORD2\""
+echo -e "How do you feel about bash scripting? "
+# read command now stores a reply into the default build-in variable $REPLY
+read
+echo "You said $REPLY, I'm glad to hear that! "
+echo -e "What are you favorite colors? "
+# -a makes read command to read into array
+read -a COLORS
+echo "My favorite colors are also ${COLORS[0]}, ${COLORS[1]} and ${COLORS[2]} :-)"

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+directory="./BashScripting"
+
+#bash check if dir exists
+if [ -d $directory ]; then
+echo "Dir exists"
+else
+echo "Dir doesn't exist"
+fi

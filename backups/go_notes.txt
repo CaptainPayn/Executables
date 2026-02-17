@@ -1,0 +1,9 @@
+# go is statically typed language
+# var myVariable = "myString"
+# go is strongly typed
+# can't add an integer and a string together
+# compiled
+# comiled fast
+# concurrency
+# simplicity
+# garbage collection built-in

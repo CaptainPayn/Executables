@@ -1,0 +1,18 @@
+#!/bin/bash
+
+while read -r line; do
+	FIR=$(echo "$line" | cut -d ',' -f 1)
+	SEC=$(echo "$line" | cut -d ',' -f 2)
+	THI=$(echo "$line" | cut -d ',' -f 3)
+	FOU=$(echo "$line" | cut -d ',' -f 4)
+	FI=$(echo "$line" | cut -d ',' -f 5)
+	SI=$(echo "$line" | cut -d ',' -f 6)
+	echo "field 1: $FIR"
+	echo "field 2: $SEC"
+	echo "field 3: $THI"
+	echo "field 4: $FOU"
+	echo "field 5: $FI"
+	echo "field 6: $SI"
+	echo "-------------"
+
+done < rando.txt

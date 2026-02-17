@@ -1,0 +1,12 @@
+#!/bin/bash
+PS3='Choose one word: '
+
+#bash select
+select WORD in "linux" "bash" "scripting" "tutorial"
+do
+	echo "The word you have selected is: $WORD"
+	#break, otherwise endless loop
+	break
+done
+
+exit 0
