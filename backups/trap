@@ -8,6 +8,7 @@ clear;
 bashtrap()
 {
 	echo "CTRL-C Detected!...executing bash trap!"
+	exit 0
 }
 #for loop from 1/10 to 10/10
 for a in `seq 1 10`; do
