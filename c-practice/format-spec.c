@@ -10,4 +10,5 @@ int main() {
   printf("Notice the difference in output in the \"%%f\" vs the \"%%.2f\" similar to python f strings\n");
   printf("My number is %d, my float is %f and my letter is %c\n", myNumber, myFloat, myLetter);
   printf("My number is %d, my float is %.2f and my letter is %c\n", myNumber, myFloat, myLetter);
+  return 0;
 }

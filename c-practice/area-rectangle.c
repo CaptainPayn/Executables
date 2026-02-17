@@ -10,4 +10,5 @@ int main() {
   // Print results
   printf("A rectangle with length %d and width %d\n", length, width);
   printf("Has an area of %d\n", area);
+  return 0;
 }

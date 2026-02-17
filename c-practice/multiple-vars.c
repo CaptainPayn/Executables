@@ -5,4 +5,5 @@ int main() {
   int x = 5, y = 10, z = 15;
   // Print sum of vars with one format specifier
   printf("%d\n", x + y + z);
+  return 0;
 }
