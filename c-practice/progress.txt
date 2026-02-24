@@ -1,2 +1,0 @@
-on c if else
-https://www.w3schools.com/c/c_conditions.php
