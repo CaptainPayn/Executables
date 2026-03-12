@@ -1,21 +1,27 @@
 #include <stdio.h>
 
 void add(int a, int b) { printf("Result: %d\n", a + b); }
-void subtract(int a, int b) { printf("Result: %d\n", a + b);
-void multiply(int a, int b) { printf("Multiply\n", a * b); }
+void subtract(int a, int b) { printf("Result: %d\n", a - b); }
+void multiply(int a, int b) { printf("Result: %d\n", a * b); }
 
 int main() {
 
-  void (*operations[3])() = { add, subtract, multiply };
-  for (int i = 0; i < 3; i++) {
-    operations[i]();
-  }
-  return 0;
-}
+    int choice, x = 10, y = 5;
 
-int main() {
+    // storing the 3 functions in pointer array
+    void (*operations[3])(int, int) = { add, subtract, multiply };
 
+    printf("x = %d, y = %d\n\n", x, y);
+    printf("Choose an operation\n");
+    printf("0: Add\n1: Subtract\n2: Multiply\n");
+    scanf("%d", &choice);
 
+    // error handling choices
+    if (choice >= 0 && choice < 3) {
+      operations[choice](x, y);
+    } else {
+      printf("Invalid choice!\n");
+    }
 
-  return 0;
+    return 0;
 }
