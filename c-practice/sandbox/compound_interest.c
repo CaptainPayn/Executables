@@ -1,5 +1,6 @@
 /*
 * Author: Philip Y.
+* When compiling you must specify -lm to prevent unreferenced errors
 */
 #include <stdio.h>
 #include <math.h>
