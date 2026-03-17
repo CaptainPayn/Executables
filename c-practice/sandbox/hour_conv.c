@@ -11,9 +11,14 @@ int main() {
 
   printf("How many minutes in whole numbers: ");
   scanf("%d", &input);
-  int hours = input / MINUTES_IN_HOUR;
-  int minutes = input % MINUTES_IN_HOUR;
-  printf("%d minutes is: %d hour(s) and %d minutes\n", input, hours, minutes);
+
+  if (!(input > 0)) {
+    printf("Invalid input\n");
+  } else {
+    int hours = input / MINUTES_IN_HOUR;
+    int minutes = input % MINUTES_IN_HOUR;
+    printf("%d minutes is: %d hour(s) and %d minutes\n", input, hours, minutes);
+  }
 
   return 0;
 }
