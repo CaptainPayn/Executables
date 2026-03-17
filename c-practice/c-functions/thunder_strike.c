@@ -1,6 +1,3 @@
-/*
-* Author: Philip Y.
-*/
 #include <stdio.h>
 
 void calculateDistance() {
