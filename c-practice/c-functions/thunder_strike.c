@@ -5,16 +5,16 @@
 
 void calculateDistance() {
 
-  int time; // declare var
+  float time; // declare var
   printf("Enter time in seconds between sound of thunder and flash of lightning: ");
-  scanf("%d", &time); // getting input from STDIN
+  scanf("%f", &time); // getting input from STDIN
 
   // error handling
   if (!(time > 0)) {
     printf("Invalid input\n");
   } else {
-    int distance = time / 5; // simple arithmetic to get storm distance
-    printf("You are %d miles away from the storm\n", distance);
+    float distance = time / 5; // simple arithmetic to get storm distance
+    printf("You are %.2f miles away from the storm\n", distance);
   }
 }
 
