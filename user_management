@@ -55,7 +55,7 @@ function reset_password {
 
 #function gets the list of users
 function list_user {
-	LIST=$(sudo getent passwd | grep "/home/" | cut -d: -f1 | xargs | tr " " ",")
+	LIST=$(sudo getent passwd | grep "/bin/bash" | cut -d: -f1 | xargs | tr " " ",")
 	echo "List of users: ${LIST}"
 }
 
