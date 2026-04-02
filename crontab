@@ -1,0 +1,4 @@
+#create backup of users home dirs
+30 16 * * * tar -czvf /var/backups/home.$(date -I).tar.gz /home/
+#keep only last 7 backups
+31 16 * * * find /var/backups/ -name "home.*.tar.gz" -mtime +7 -delete
