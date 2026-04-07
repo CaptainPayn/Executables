@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#test
 #put parameter into variable
 SOURCE_DIR="$1"
 
