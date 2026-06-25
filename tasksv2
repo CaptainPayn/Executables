@@ -1,0 +1,21 @@
+#!/bin/bash
+
+FULL_DATE=$(date -I)
+YEAR=$(date -I | cut -d'-' -f1)
+MONTH=$(date -I | cut -d'-' -f2)
+
+mkdir -p /home/"$USER"/Documents/Tasks/"$YEAR"/"$MONTH"
+
+echo "Would you like to add a task?"
+
+CHOICE=$(gum choose "yes" "no" "display")
+
+case "$CHOICE" in
+
+  "yes") gum write >> /home/"$USER"/Documents/Tasks/"${YEAR}"/"${MONTH}"/"${FULL_DATE}"-tasks.txt ;;
+
+  "no") exit 0 ;;
+
+  "display") cat /home/"$USER"/Documents/Tasks/"${YEAR}"/"${MONTH}"/"${FULL_DATE}"-tasks.txt ;;
+
+esac
