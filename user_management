@@ -59,8 +59,8 @@ function list_user {
 	echo "List of users: ${LIST}"
 }
 
-#if no paramter or more than one is passed show usage
-if [[ -z "$OPTION" || "$#" > 1 ]]; then
+#if no parameter or more than one is passed show usage
+if [[ -z "$OPTION" || "$#" -gt 1 ]]; then
 	display_usage
 	exit 1
 else
