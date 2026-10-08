@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+# importing typer module
+from typer import Typer
+
+app = Typer()
+
+@app.command()
+def create():
+    # function taking in user input and writing to file
+    exercise = input("Enter exercise: ")
+    sets = input("Enter sets: ")
+    reps = input("Enter reps: ")
+    with open("workout.txt", "a", encoding="utf-8") as file:
+        file.write(f"{exercise},{sets},{reps}\n")
+
+@app.command()
+def exercise_list():
+    # function reading the file
+    with open("workout.txt", "r", encoding="utf-8") as file:
+        list_exercises = file.readlines()
+    for e in list_exercises:
+        print(e)
+
+if __name__ == "__main__":
+    app()
