@@ -1,0 +1,27 @@
+#!/bin/python3
+from typer import Typer
+
+app = Typer()
+
+
+@app.command()
+def create():
+    exercise = input("Enter exercise: ")
+    sets = input("Enter sets: ")
+    reps = input("Enter reps: ")
+
+    with open("workout.txt", "a") as file:
+        file.write(f"{exercise},{sets},{reps}\n")
+
+@app.command()
+def list():
+    with open("workout.txt", "r") as file:
+        list_exercises = file.readlines()
+
+    for e in list_exercises:
+        print(e)
+
+
+
+if __name__ == "__main__":
+	app()
